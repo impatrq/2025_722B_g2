@@ -1,3 +1,4 @@
+import 'package:aquiles/widgets/status_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -116,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen>
       body: TabBarView(
         controller: _tabController,
         children: const [
-          Center(child: Text('Estado')),
+          StatusTab(),
           Center(child: Text('Rendimiento')),
           Center(child: Text('Ajustes')),
           Center(child: Text('Tutoriales')),
