@@ -1261,7 +1261,6 @@ color:#8CCBD5;
     max-width: 250px;
     transition: transform 0.5s ease;
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .about-image:hover img {
