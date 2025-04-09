@@ -1,3 +1,4 @@
+import 'package:aquiles/widgets/performance.dart';
 import 'package:aquiles/widgets/status_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -118,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen>
         controller: _tabController,
         children: const [
           StatusTab(),
-          Center(child: Text('Rendimiento')),
+          PerformanceTab(),
           Center(child: Text('Ajustes')),
           Center(child: Text('Tutoriales')),
         ],
