@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
-          'assets/logo.png',
+          'assets/images/logo.png',
           height: 40,
         ),
         actions: [
