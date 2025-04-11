@@ -102,7 +102,7 @@ Si deseas colaborar con el desarrollo de AQUILES, puedes contribuir con:
 
 - 📷 Instagram: [@montillajuanignacio](https://www.instagram.com/montillajuanignacio/)
 - 📧 Mail: montillajuanignacio@gmail.com
-- 🏆 LinkedIn:
+- 🏆 LinkedIn:[Juan Montilla](https://www.linkedin.com/in/juan-ignacio-montilla-b98064358/)
 - 🌐 Github: [@monti3](github.com/monti3)
 
 ### Santiago Alberto Zacarías
@@ -130,7 +130,7 @@ Si deseas colaborar con el desarrollo de AQUILES, puedes contribuir con:
 
 - 📷 Instagram: [@mauritrillo\_](https://www.instagram.com/mauritrillo_/)
 - 📧 Mail: trillocontardimauricio@gmail.com
-- 🏆 LinkedIn:
+- 🏆 LinkedIn: [Mauricio Contardi Trillo](https://www.linkedin.com/in/mauricio-trillo-contardi-68bbba35a/)
 - 🌐 Github: [Mauriciotrillo](https://github.com/MauricioTrillo)
 
 ### Misael Castillo
