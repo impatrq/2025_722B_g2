@@ -1940,24 +1940,36 @@ img {
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
   }
 
-  .hero-with-bg h1 {
-    font-size: 1.8rem;
+  .footer-links,
+  .footer-contact {
+    width: 100%;
+    text-align: center;
   }
 
-  .hero-with-bg p {
-    font-size: 1rem;
+  .footer-social {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
   }
 
-  .stats-grid {
-    grid-template-columns: 1fr;
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
   }
 
-  .project-title,
-  .project-subtitle {
-    font-size: 30px;
+  .footer h3 {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-light-teal);
+    margin-bottom: 20px;
   }
 }
 
@@ -2245,83 +2257,29 @@ img {
 
   .footer-content {
     grid-template-columns: 1fr;
-  }
-
-  .hero-with-bg h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero-with-bg p {
-    font-size: 1rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-title,
-  .project-subtitle {
-    font-size: 30px;
-  }
-}
-
-/* Actualizar los estilos del footer para adaptarse a la nueva estructura sin el logo y eslogan */
-@media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-}
-
-@media (max-width: 576px) {
-  .footer-content {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .footer-social {
-    grid-column: span 2;
     text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-    align-content: center
+    padding: 0 20px;
   }
 
   .footer-social {
     grid-column: span 1;
-  }
-
-  .footer-links ul li {
     text-align: center;
-  }
-
-  .footer-links ul li a::before {
-    display: none;
-  }
-
-  .footer-links ul li a:hover {
-    padding-left: 0;
-  }
-
-  .footer-contact ul li {
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-contact ul li i {
-    margin-right: 0;
-    margin-bottom: 5px;
+    margin: 0 auto;
+    max-width: 300px;
+    width: 100%;
   }
 
   .social-icons {
     justify-content: center;
+    display: flex;
+    gap: 15px;
+  }
+
+  .footer h3 {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-light-teal);
+    margin-bottom: 20px;
   }
 
   .footer h3::after {
