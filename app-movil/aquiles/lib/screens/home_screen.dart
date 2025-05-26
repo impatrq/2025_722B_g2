@@ -1,4 +1,5 @@
 import 'package:aquiles/providers/auth_provider.dart';
+import 'package:aquiles/screens/login_screen.dart';
 import 'package:aquiles/widgets/performance_tab.dart';
 import 'package:aquiles/widgets/settings_tab.dart';
 import 'package:aquiles/widgets/status_tab.dart';
@@ -101,7 +102,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
           IconButton(
             icon: const Icon(Icons.person_outline, color: Color(0xFF8CCBD5)),
             onPressed: () async {
-              await ref.read(authServiceProvider).signOut();
+              Navigator.pushNamed(context, "/profile");
             },
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:aquiles/screens/auth_checker.dart';
+import 'package:aquiles/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -58,6 +59,9 @@ class AquilesApp extends StatelessWidget {
         ),
       ),
       home: const AuthChecker(),
+      routes: {
+        '/profile': (context) => const ProfileScreen(),
+      },
     );
   }
 }
