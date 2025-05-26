@@ -92,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
                 _buildInfoRow(Icons.medical_information,
                     'Medico a cargo: Dr. Juan Perez'),
                 _buildInfoRow(
-                    Icons.calendar_month, 'Ultima consulta: 26/05/2025x'),
+                    Icons.calendar_month, 'Ultima consulta: 26/05/2025'),
                 const SizedBox(height: 15),
               ],
             ),
