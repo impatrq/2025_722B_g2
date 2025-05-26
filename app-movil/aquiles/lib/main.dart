@@ -1,14 +1,28 @@
+import 'package:aquiles/screens/auth_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'screens/login_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(const AquilesApp());
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(
+    ProviderScope(
+      child: AquilesApp(),
+    ),
+  );
 }
 
 class AquilesApp extends StatelessWidget {
@@ -43,7 +57,7 @@ class AquilesApp extends StatelessWidget {
           onSurface: const Color(0xFFFFFFFA),
         ),
       ),
-      home: const LoginScreen(),
+      home: const AuthChecker(),
     );
   }
 }

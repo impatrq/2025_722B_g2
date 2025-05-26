@@ -1,14 +1,16 @@
+import 'package:aquiles/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'home_screen.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen>
+class _LoginScreenState extends ConsumerState<LoginScreen>
     with SingleTickerProviderStateMixin {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -40,20 +42,17 @@ class _LoginScreenState extends State<LoginScreen>
     super.dispose();
   }
 
-  void _login() {
-    setState(() {
-      _isLoading = true;
-    });
+  void _login() async {
+    await ref.read(authServiceProvider).signIn(
+          _emailController.text,
+          _passwordController.text,
+        );
 
     // Simulación de inicio de sesión
     Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _isLoading = false;
       });
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-      );
     });
   }
 
@@ -94,7 +93,11 @@ class _LoginScreenState extends State<LoginScreen>
                           ),
                         ],
                       ),
-                      child: Image.asset('assets/images/logo.png'),
+                      child: SizedBox(
+                        width: 200,
+                        height: 200,
+                        child: Image.asset('assets/images/logo.png'),
+                      ),
                     ),
                     const SizedBox(height: 24),
 
@@ -201,7 +204,15 @@ class _LoginScreenState extends State<LoginScreen>
                             width: double.infinity,
                             height: 50,
                             child: ElevatedButton(
-                              onPressed: _isLoading ? null : _login,
+                              onPressed: () async {
+                                setState(() {
+                                  _isLoading = true;
+                                });
+                                await ref.read(authServiceProvider).signIn(
+                                      _emailController.text,
+                                      _passwordController.text,
+                                    );
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF3F797A),
                                 foregroundColor: Colors.white,

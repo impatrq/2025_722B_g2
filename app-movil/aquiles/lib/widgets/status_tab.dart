@@ -101,9 +101,9 @@ class StatusTab extends StatelessWidget {
                     ),
                   ),
                   Image.asset(
-                    'assets/images/logo.png',
-                    width: 180,
-                    height: 180,
+                    'assets/images/exoesqueleto-1.png',
+                    width: 240,
+                    height: 240,
                   ),
                 ],
               ),

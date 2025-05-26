@@ -1,18 +1,20 @@
+import 'package:aquiles/providers/auth_provider.dart';
 import 'package:aquiles/widgets/performance_tab.dart';
 import 'package:aquiles/widgets/settings_tab.dart';
 import 'package:aquiles/widgets/status_tab.dart';
 import 'package:aquiles/widgets/tutorials_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
+class _HomeScreenState extends ConsumerState<HomeScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   bool _showSplash = true;
@@ -98,7 +100,9 @@ class _HomeScreenState extends State<HomeScreen>
           ),
           IconButton(
             icon: const Icon(Icons.person_outline, color: Color(0xFF8CCBD5)),
-            onPressed: () {},
+            onPressed: () async {
+              await ref.read(authServiceProvider).signOut();
+            },
           ),
         ],
         bottom: TabBar(
