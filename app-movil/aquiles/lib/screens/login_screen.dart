@@ -1,3 +1,4 @@
+import 'package:aquiles/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'home_screen.dart';
@@ -43,6 +44,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
 
   void _login() {
     setState(() {
+      ref.read(authServiceProvider).signIn(
+            _emailController.text,
+            _passwordController.text,
+          );
       _isLoading = true;
     });
 
