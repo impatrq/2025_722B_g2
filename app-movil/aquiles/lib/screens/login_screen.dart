@@ -42,14 +42,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
     super.dispose();
   }
 
-  void _login() {
-    setState(() {
-      ref.read(authServiceProvider).signIn(
-            _emailController.text,
-            _passwordController.text,
-          );
-      _isLoading = true;
-    });
+  void _login() async {
+    await ref.read(authServiceProvider).signIn(
+          _emailController.text,
+          _passwordController.text,
+        );
 
     // Simulación de inicio de sesión
     Future.delayed(const Duration(seconds: 2), () {
@@ -207,7 +204,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                             width: double.infinity,
                             height: 50,
                             child: ElevatedButton(
-                              onPressed: _isLoading ? null : _login,
+                              onPressed: () async {
+                                setState(() {
+                                  _isLoading = true;
+                                });
+                                await ref.read(authServiceProvider).signIn(
+                                      _emailController.text,
+                                      _passwordController.text,
+                                    );
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF3F797A),
                                 foregroundColor: Colors.white,
