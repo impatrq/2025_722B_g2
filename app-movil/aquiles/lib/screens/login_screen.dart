@@ -91,7 +91,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                           ),
                         ],
                       ),
-                      child: Image.asset('assets/images/logo.png'),
+                      child: SizedBox(
+                        width: 200,
+                        height: 200,
+                        child: Image.asset('assets/images/logo.png'),
+                      ),
                     ),
                     const SizedBox(height: 24),
 
