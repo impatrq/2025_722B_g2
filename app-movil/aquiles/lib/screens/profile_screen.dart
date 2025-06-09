@@ -1,10 +1,12 @@
+import 'package:aquiles/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -94,6 +96,16 @@ class ProfileScreen extends StatelessWidget {
                 _buildInfoRow(
                     Icons.calendar_month, 'Ultima consulta: 26/05/2025'),
                 const SizedBox(height: 15),
+                TextButton(
+                  onPressed: () {
+                    ref.read(authServiceProvider).signOut();
+                    Navigator.pushNamed(context, '/login');
+                  },
+                  child: Text(
+                    "Cerrar sesion",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
               ],
             ),
           ),

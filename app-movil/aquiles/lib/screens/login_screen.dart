@@ -42,20 +42,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
     super.dispose();
   }
 
-  void _login() async {
-    await ref.read(authServiceProvider).signIn(
-          _emailController.text,
-          _passwordController.text,
-        );
-
-    // Simulación de inicio de sesión
-    Future.delayed(const Duration(seconds: 2), () {
-      setState(() {
-        _isLoading = false;
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -205,13 +191,37 @@ class _LoginScreenState extends ConsumerState<LoginScreen>
                             height: 50,
                             child: ElevatedButton(
                               onPressed: () async {
+                                if (!mounted) return;
                                 setState(() {
                                   _isLoading = true;
                                 });
-                                await ref.read(authServiceProvider).signIn(
-                                      _emailController.text,
-                                      _passwordController.text,
+                                try {
+                                  await ref.read(authServiceProvider).signIn(
+                                        _emailController.text,
+                                        _passwordController.text,
+                                      );
+                                  // If signIn is successful, AuthChecker should navigate.
+                                  // If the widget is still mounted, reset loading state.
+                                  if (mounted) {
+                                    setState(() {
+                                      _isLoading = false;
+                                    });
+                                  }
+                                } catch (e) {
+                                  if (mounted) {
+                                    setState(() {
+                                      _isLoading = false;
+                                    });
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                            'Error al iniciar sesión: Vuelva a intentarlo'),
+                                        backgroundColor: Colors.red,
+                                      ),
                                     );
+                                  }
+                                  print('Login error: $e'); // For debugging
+                                }
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF3F797A),

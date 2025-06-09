@@ -11,11 +11,14 @@ class AuthChecker extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authStateProvider);
+    print('AuthChecker');
     return authState.when(
       data: (user) {
         if (user == null) {
+          print("No user");
           return const LoginScreen();
         } else {
+          print("User: ${user.uid}");
           return HomeScreen();
         }
       },
