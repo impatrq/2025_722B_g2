@@ -1,4 +1,5 @@
 import 'package:aquiles/providers/auth_provider.dart';
+import 'package:aquiles/providers/user_model_proivider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -40,74 +41,7 @@ class ProfileScreen extends ConsumerWidget {
                 ),
               ],
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 24),
-                const CircleAvatar(
-                  radius: 50,
-                  child: Icon(
-                    Icons.person,
-                    size: 50,
-                    color: Color(0xFF3F797A),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  'Juan',
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                const SizedBox(height: 8),
-                Text("Paciente"),
-                const SizedBox(height: 24),
-                const Divider(
-                  color: Color(0xFF3F797A),
-                  thickness: 1,
-                ),
-                const SizedBox(height: 24),
-                const Text('Información Personal',
-                    style: TextStyle(
-                      color: Color(0xFFFFFFFA),
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    )),
-                const SizedBox(height: 16),
-                _buildInfoRow(Icons.email, 'juan.perez@example.com'),
-                _buildInfoRow(Icons.phone, '+54 9 11 1234-5678'),
-                _buildInfoRow(Icons.location_on, 'Av. Siempre Viva 742'),
-                const SizedBox(height: 24),
-                const Divider(
-                  color: Color(0xFF3F797A),
-                  thickness: 1,
-                ),
-                const SizedBox(height: 24),
-                const Text('Información Médica',
-                    style: TextStyle(
-                      color: Color(0xFFFFFFFA),
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    )),
-                const SizedBox(height: 16),
-                _buildInfoRow(Icons.medical_services, 'OSDE 210'),
-                _buildInfoRow(
-                    Icons.warning_amber_rounded, 'Paciente en rehabilitacion '),
-                _buildInfoRow(Icons.medical_information,
-                    'Medico a cargo: Dr. Juan Perez'),
-                _buildInfoRow(
-                    Icons.calendar_month, 'Ultima consulta: 26/05/2025'),
-                const SizedBox(height: 15),
-                TextButton(
-                  onPressed: () {
-                    ref.read(authServiceProvider).signOut();
-                    Navigator.pushNamed(context, '/login');
-                  },
-                  child: Text(
-                    "Cerrar sesion",
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-              ],
-            ),
+            child: mainCard(buildInfo: _buildInfoRow),
           ),
         ),
       ),
@@ -130,6 +64,50 @@ class ProfileScreen extends ConsumerWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class mainCard extends ConsumerWidget {
+  final Function buildInfo;
+  const mainCard({required this.buildInfo, super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ref.watch(userProvider).when(
+      data: (user) {
+        return Column(
+          children: [
+            const SizedBox(height: 24),
+            const CircleAvatar(
+              radius: 50,
+              child: Icon(
+                Icons.person,
+                size: 50,
+                color: Color(0xFF3F797A),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              "${user.name} ${user.surname} ",
+              style: const TextStyle(
+                color: Color(0xFFFFFFFA),
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 24),
+            buildInfo(Icons.email, user.email),
+            buildInfo(Icons.phone, user.phoneNumber),
+          ],
+        );
+      },
+      error: (error, stackTrace) {
+        return Text("Error: ${error.toString()}");
+      },
+      loading: () {
+        return const Center(child: CircularProgressIndicator());
+      },
     );
   }
 }

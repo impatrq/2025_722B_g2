@@ -28,6 +28,13 @@ class AuthServices {
     }
   }
 
+  Future<String?> getUserId() async {
+    if (firebaseAuth.currentUser == null) {
+      return null;
+    }
+    return await firebaseAuth.currentUser?.uid;
+  }
+
   Future<void> signOut() async {
     await firebaseAuth.signOut();
   }
