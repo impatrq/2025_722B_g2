@@ -16,6 +16,7 @@ class AuthServices {
         password: password,
       );
       print('User signed in: ${result.user?.email}');
+
       return result.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -25,6 +26,13 @@ class AuthServices {
       }
       throw e;
     }
+  }
+
+  Future<String?> getUserId() async {
+    if (firebaseAuth.currentUser == null) {
+      return null;
+    }
+    return await firebaseAuth.currentUser?.uid;
   }
 
   Future<void> signOut() async {

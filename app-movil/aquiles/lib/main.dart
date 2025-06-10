@@ -60,6 +60,7 @@ class AquilesApp extends StatelessWidget {
       ),
       home: const AuthChecker(),
       routes: {
+        '/login': (context) => const LoginScreen(),
         '/profile': (context) => const ProfileScreen(),
       },
     );

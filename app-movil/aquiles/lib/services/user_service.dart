@@ -1,7 +1,8 @@
+import 'package:aquiles/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class UserService{
+class UserService {
   final FirebaseAuth _auth;
   final FirebaseFirestore _firestore;
 
@@ -13,8 +14,10 @@ class UserService{
     await _firestore.collection('users').doc(uid).set(userData);
   }
 
-  Future<DocumentSnapshot> getUser(String uid) async {
-    return await _firestore.collection('users').doc(uid).get();
+  Future<UserModel> getUser(String uid) async {
+    final doc = await _firestore.collection('users').doc(uid).get();
+    if (!doc.exists) throw Exception("Usuario no encontrado");
+    return UserModel.fromMap(doc.data()!);
   }
 
   Future<void> updateUser(String uid, Map<String, dynamic> userData) async {
