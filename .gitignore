@@ -86,3 +86,6 @@ dmypy.json
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+#Backups
+*-backups*
