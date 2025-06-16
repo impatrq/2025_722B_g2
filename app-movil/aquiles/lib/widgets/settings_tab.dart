@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:aquiles/providers/ble_connection_provider.dart';
 import 'package:aquiles/providers/ble_provider.dart';
 import 'package:flutter/material.dart';
@@ -79,8 +81,11 @@ class _SettingsTabState extends ConsumerState<SettingsTab> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () async {
-                  await ble.sendCommand(
-                      'CMD: ${_assistanceLevel.round()},${_resistanceLevel.round()},${_sensitivityLevel.round()}');
+                  await ble.sendCommand('AID:${_assistanceLevel.round()}');
+                  sleep(Duration(milliseconds: 30));
+                  await ble.sendCommand('RES:${_resistanceLevel.round()}');
+                  sleep(Duration(milliseconds: 30));
+                  await ble.sendCommand('SEN:${_sensitivityLevel.round()}');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF3F797A),
