@@ -1,20 +1,36 @@
+import 'package:aquiles/providers/ble_connection_provider.dart';
+import 'package:aquiles/providers/ble_provider.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class PerformanceTab extends StatelessWidget {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class PerformanceTab extends ConsumerWidget {
   const PerformanceTab({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildPerformanceCard(context),
-        ],
-      ),
-    );
+  Widget build(BuildContext context, WidgetRef ref) {
+    final message = ref.watch(notificationStreamProvider);
+    final bleState = ref.watch(bleConnectionProvider);
+
+    if (bleState == BleConnectionState.connected) {
+      return SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildPerformanceCard(context),
+            message.when(
+              data: (msg) => Text("ESP32 dice: $msg"),
+              loading: () => const CircularProgressIndicator(),
+              error: (e, _) => Text("Error: $e"),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return const Center(child: Text('Desconectado'));
+    }
   }
 
   Widget _buildPerformanceCard(BuildContext context) {
