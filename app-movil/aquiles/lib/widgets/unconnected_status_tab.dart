@@ -1,3 +1,4 @@
+import 'package:aquiles/services/ble_services.dart';
 import 'package:flutter/material.dart';
 
 class UnconnectedStatusTab extends StatelessWidget {
@@ -107,14 +108,16 @@ class UnconnectedStatusTab extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
-            const SizedBox(height: 20),
-            const SizedBox(height: 16),
             const SizedBox(height: 8),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  final ble = BleService();
+                  await ble.scanAndConnect();
+                  print('Conectado');
+                  await ble.sendCommand('command');
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF3F797A),
                   foregroundColor: Colors.white,

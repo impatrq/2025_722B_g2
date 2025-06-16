@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		XFAZEE0UiJYeGwRuIxxMVYP7sZo=
+		m7liGYDDw3Rez9vlNzFZjueNR24=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		gElsZ69Zf09XOhilc/pJovZbAdM=
+		r8Fqxw20KS6RjfFuruy+qYvMKHk=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		p3uV6iBQ7BMgoNpGYtuKbFn7kHw=
+		Lc5XUzOwbzGIfeiU2wxPQy9s9h4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/exoesqueleto-1.png</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		zii+7r2V/YijCCdORObgXIq86WE=
+		UZFZRYfeN/LMJEsIUjpkUtzb/Z0=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -396,6 +396,26 @@
 		<data>
 		oDZ9fHVvgiy4cJ+xiyBZ3PA3phk=
 		</data>
+		<key>Frameworks/Protobuf.framework/Info.plist</key>
+		<data>
+		cKJ4zVq22/CKAfqBz7ezJV1vueI=
+		</data>
+		<key>Frameworks/Protobuf.framework/Protobuf</key>
+		<data>
+		L8Sn6xfmQUS29ma3dnNWbmI856U=
+		</data>
+		<key>Frameworks/Protobuf.framework/Protobuf_Privacy.bundle/Info.plist</key>
+		<data>
+		E2Yws424+XtuZziKqhIUHNfyY1I=
+		</data>
+		<key>Frameworks/Protobuf.framework/Protobuf_Privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<data>
+		ucg9pita0v8d353x3NuGfxweQYU=
+		</data>
+		<key>Frameworks/Protobuf.framework/_CodeSignature/CodeResources</key>
+		<data>
+		zQ5jcXs5qnAbwREOSiPxSSllW7I=
+		</data>
 		<key>Frameworks/RecaptchaInterop.framework/Info.plist</key>
 		<data>
 		HYXwi2L/vjYuDweZnWbVJLh6x1Y=
@@ -408,6 +428,26 @@
 		<data>
 		1A9WYGjQn33eMEslJiKa84kLb3M=
 		</data>
+		<key>Frameworks/SwiftProtobuf.framework/Info.plist</key>
+		<data>
+		SQcR4zNgnynz2ow4kzBG6cduFtk=
+		</data>
+		<key>Frameworks/SwiftProtobuf.framework/SwiftProtobuf</key>
+		<data>
+		5s+7HILdF53/v7Wq1AJWyAHDCAI=
+		</data>
+		<key>Frameworks/SwiftProtobuf.framework/SwiftProtobuf.bundle/Info.plist</key>
+		<data>
+		Gl2w+AlEtZTaBYHhxpbvuNi3MJU=
+		</data>
+		<key>Frameworks/SwiftProtobuf.framework/SwiftProtobuf.bundle/PrivacyInfo.xcprivacy</key>
+		<data>
+		F6mYXr6EQZyLKcQNM0vmTGcGMns=
+		</data>
+		<key>Frameworks/SwiftProtobuf.framework/_CodeSignature/CodeResources</key>
+		<data>
+		K0kfojGHvGtWjuGNNOpdKjk0a3k=
+		</data>
 		<key>Frameworks/absl.framework/Info.plist</key>
 		<data>
 		9zJHTC0b/xEyFHBXEy8EQVZHbQU=
@@ -418,7 +458,7 @@
 		</data>
 		<key>Frameworks/absl.framework/absl</key>
 		<data>
-		NVvtU74FLJFjbr9YaoX+o1gl+RQ=
+		cHE+LT9rHwRxHodVyBaKERx+NFA=
 		</data>
 		<key>Frameworks/absl.framework/xcprivacy.bundle/Info.plist</key>
 		<data>
@@ -438,7 +478,7 @@
 		</data>
 		<key>Frameworks/grpc.framework/grpc</key>
 		<data>
-		5OucQBxcB9oBy9EwEmRWpdBoiiE=
+		MdMxH5DlLbFhUHHWnjHqU4lNRxg=
 		</data>
 		<key>Frameworks/grpc.framework/grpc.bundle/Info.plist</key>
 		<data>
@@ -536,13 +576,25 @@
 		<data>
 		PFHYbs0V3eUFDWQyYQcwEetuqEk=
 		</data>
+		<key>Frameworks/reactive_ble_mobile.framework/Info.plist</key>
+		<data>
+		iHK/5iuVTsaVCesRt3KDssQdOfA=
+		</data>
+		<key>Frameworks/reactive_ble_mobile.framework/_CodeSignature/CodeResources</key>
+		<data>
+		URezIVJLuCKZN1ssGL7paLm57YU=
+		</data>
+		<key>Frameworks/reactive_ble_mobile.framework/reactive_ble_mobile</key>
+		<data>
+		3wHPfY4niS4rovzpgueRMBVeDqU=
+		</data>
 		<key>GoogleService-Info.plist</key>
 		<data>
 		XZb1KW2zEc8meAYnpyiWEB9UStA=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		cewkoGhfGbOjd4gpqQJUJA0aaUI=
+		JnLzut9oloTLLItdIaNLqvQH7a4=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -550,11 +602,19 @@
 		</data>
 		<key>Runner.debug.dylib</key>
 		<data>
-		xussKijXvipeHU4eMs3Xf057uBs=
+		gjGBJdAE1VGIT1wXmoFS3Vvs6Ek=
 		</data>
 		<key>__preview.dylib</key>
 		<data>
 		YaFMVJdR06jtHBhPdm7Iq/Erp9M=
+		</data>
+		<key>permission_handler_apple_privacy.bundle/Info.plist</key>
+		<data>
+		QgNoJZCnfUc4WjsZicHBtZAa4Gw=
+		</data>
+		<key>permission_handler_apple_privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<data>
+		PgAJpgZlblxKbgx9eihlgflAQU8=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -633,7 +693,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			A2qx/+0BTnxpalGLVaMn+J1fLew3afdC9ZhIeX2PLmw=
+			NXwYyUtN5iZguATLIVsjXayWIzc0gG5KpV02hl3zFc4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -647,7 +707,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KpNXnmCs9EkGjUwKFbMLURWvFrQVU01QTmIByD55RCs=
+			O8aZiM0YjxNvujLPL55WgxJ+N7730VT+ZMETGSyds6Q=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -675,7 +735,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fyErGY8eLgbCC9zKsMNhCHcMFsb6R974qSXORcNnUBk=
+			AbdTxFUV/7VHVA18fUhNE8iAjIgmFL1uYmp6p5pbkCE=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/exoesqueleto-1.png</key>
@@ -717,7 +777,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C/Wii4XDQu+47En7MGzXqstBJjVbcZxrdUr9y6JnwEM=
+			q5m93iCBlP/4WEq00yB9jrC6Oi4CCJnZBP4qpou+5I8=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1245,6 +1305,41 @@
 			tnhTCld4gcmqH95yGWdozdtdK6RPcH8Xkk1eevWn0zk=
 			</data>
 		</dict>
+		<key>Frameworks/Protobuf.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+L2ZZjpLYeVu2UEvCFEQbVJh7BFunoAdjsYBz+t4tmg=
+			</data>
+		</dict>
+		<key>Frameworks/Protobuf.framework/Protobuf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			l7tqSqZ8gM1ohdQE8WkZJmKUH/C0iE32yQ2uHdEfInw=
+			</data>
+		</dict>
+		<key>Frameworks/Protobuf.framework/Protobuf_Privacy.bundle/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Y4ULMHNrYY7isq09fuRz5GZoxrmwy0TfQYTQDj4nXYc=
+			</data>
+		</dict>
+		<key>Frameworks/Protobuf.framework/Protobuf_Privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Uh6274Qwdz5cAQ4YOP6d2PpdYre3bRzqjX2NqtyxROI=
+			</data>
+		</dict>
+		<key>Frameworks/Protobuf.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			fUbWSsNUvu16zgJ8KMfhIgzq0QXFot1PRwYz5XhLwDA=
+			</data>
+		</dict>
 		<key>Frameworks/RecaptchaInterop.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
@@ -1266,6 +1361,41 @@
 			Qfuu6KGIVAr2E2dDqgvmVN21vpkE/SpZcje2UACLZvA=
 			</data>
 		</dict>
+		<key>Frameworks/SwiftProtobuf.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ECcGIxhYIaX+/MECSR/rWT9kdkMEY9mYHY+QCfYkRkA=
+			</data>
+		</dict>
+		<key>Frameworks/SwiftProtobuf.framework/SwiftProtobuf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			z7pGtQ1vK95HWilzvXfcT6ocO44hqrWrqvXFgl25Jas=
+			</data>
+		</dict>
+		<key>Frameworks/SwiftProtobuf.framework/SwiftProtobuf.bundle/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kcVVd/nmpPmfA6+cZ1e4edF+KDKtenRJLLbhntN+NLo=
+			</data>
+		</dict>
+		<key>Frameworks/SwiftProtobuf.framework/SwiftProtobuf.bundle/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oHQY5f4SjiJM03lkvCHFA7eqL1dee0knRoR4rYcyFP4=
+			</data>
+		</dict>
+		<key>Frameworks/SwiftProtobuf.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			sTsAbwzpbu4wEWR2235GSCyllI1ojChlV6s1bxk/HsM=
+			</data>
+		</dict>
 		<key>Frameworks/absl.framework/Info.plist</key>
 		<dict>
 			<key>hash2</key>
@@ -1284,7 +1414,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hrQApdScUdfrmuIjQ53/MFshsiuGbjg+585VkWQzhnY=
+			j50sGRZD+JAM3us1JSqkp+7PIG052kO5FhcPO5h9iRQ=
 			</data>
 		</dict>
 		<key>Frameworks/absl.framework/xcprivacy.bundle/Info.plist</key>
@@ -1319,7 +1449,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xABfK6BPJCa7XhfyChnjSyo6yIKuh6p9ZxS0CAp8JLQ=
+			c7HZGUEIneDDphmSUdj5J5ZxIFm/0l/sB0Czr5cnbyA=
 			</data>
 		</dict>
 		<key>Frameworks/grpc.framework/grpc.bundle/Info.plist</key>
@@ -1490,6 +1620,27 @@
 			A7LHCDOjMaKx79Ef8WjtAqjq39Xn0fvzDuzHUJpK6kc=
 			</data>
 		</dict>
+		<key>Frameworks/reactive_ble_mobile.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			CJKEqPxDSf1pmnbTILJD+eHKMsQBpLU1LplqBxFbKGY=
+			</data>
+		</dict>
+		<key>Frameworks/reactive_ble_mobile.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			laMWPzeQhWoF1FlBviQAecuy1SKcRW7jHpL3/lzaXxE=
+			</data>
+		</dict>
+		<key>Frameworks/reactive_ble_mobile.framework/reactive_ble_mobile</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dG22O5/SEJVPdIzMcJfM/ySHQECVP7DNGINKrWhVN28=
+			</data>
+		</dict>
 		<key>GoogleService-Info.plist</key>
 		<dict>
 			<key>hash2</key>
@@ -1501,7 +1652,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Vgd2gwI+ONzd2GM4qYXgGU3RgNPI7L0hcMetonKsm1w=
+			dR/KcpSezFOW1u+3GSVPBdUUdJeWpkoSBJZAHTu+aRM=
 			</data>
 		</dict>
 		<key>__preview.dylib</key>
@@ -1509,6 +1660,20 @@
 			<key>hash2</key>
 			<data>
 			TezGtgywRLNncCBOWeVD5ua6IAvbHrZObch2C836XzA=
+			</data>
+		</dict>
+		<key>permission_handler_apple_privacy.bundle/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4X7lJzfb1a3rFEDBFeh5o1GtqlUXedmXuFLaPSivjHA=
+			</data>
+		</dict>
+		<key>permission_handler_apple_privacy.bundle/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ETZWiZY6EZHpaiLgs59i8FuG0NJKvoBAXBpc7vCamxs=
 			</data>
 		</dict>
 	</dict>

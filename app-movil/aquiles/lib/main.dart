@@ -30,8 +30,6 @@ void main() async {
 class AquilesApp extends StatelessWidget {
   AquilesApp({Key? key}) : super(key: key);
 
-  final ble = BleService();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
