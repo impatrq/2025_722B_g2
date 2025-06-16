@@ -1,4 +1,5 @@
 import 'package:aquiles/providers/auth_provider.dart';
+import 'package:aquiles/providers/ble_connection_provider.dart';
 import 'package:aquiles/screens/login_screen.dart';
 import 'package:aquiles/widgets/performance_tab.dart';
 import 'package:aquiles/widgets/settings_tab.dart';
@@ -44,6 +45,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    final bleState = ref.watch(bleConnectionProvider);
+
     if (_showSplash) {
       return Scaffold(
         backgroundColor: const Color(0xFF0A1128),
@@ -125,8 +128,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const [
-          UnconnectedStatusTab(),
+        children: [
+          switch (bleState) {
+            BleConnectionState.connected => const StatusTab(),
+            BleConnectionState.connecting =>
+              const Center(child: CircularProgressIndicator()),
+            BleConnectionState.error =>
+              const UnconnectedStatusTab(), // Podés reemplazar por algo más informativo si querés
+            _ => const UnconnectedStatusTab(),
+          },
           PerformanceTab(),
           SettingsTab(),
           TutorialsTab()
