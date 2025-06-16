@@ -4,6 +4,7 @@ import 'package:aquiles/widgets/performance_tab.dart';
 import 'package:aquiles/widgets/settings_tab.dart';
 import 'package:aquiles/widgets/status_tab.dart';
 import 'package:aquiles/widgets/tutorials_tab.dart';
+import 'package:aquiles/widgets/unconnected_status_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -125,7 +126,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
       body: TabBarView(
         controller: _tabController,
         children: const [
-          StatusTab(),
+          UnconnectedStatusTab(),
           PerformanceTab(),
           SettingsTab(),
           TutorialsTab()
