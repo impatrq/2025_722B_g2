@@ -1,19 +1,23 @@
+import 'package:aquiles/providers/ble_connection_provider.dart';
+import 'package:aquiles/providers/ble_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SettingsTab extends StatefulWidget {
+class SettingsTab extends ConsumerStatefulWidget {
   const SettingsTab({Key? key}) : super(key: key);
 
   @override
-  State<SettingsTab> createState() => _SettingsTabState();
+  ConsumerState<SettingsTab> createState() => _SettingsTabState();
 }
 
-class _SettingsTabState extends State<SettingsTab> {
+class _SettingsTabState extends ConsumerState<SettingsTab> {
   double _assistanceLevel = 60;
   double _resistanceLevel = 40;
   double _sensitivityLevel = 80;
 
   @override
   Widget build(BuildContext context) {
+    final ble = ref.watch(bleConnectionProvider.notifier);
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Container(
@@ -74,7 +78,10 @@ class _SettingsTabState extends State<SettingsTab> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await ble.sendCommand(
+                      'CMD: ${_assistanceLevel.round()},${_resistanceLevel.round()},${_sensitivityLevel.round()}');
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF3F797A),
                   foregroundColor: Colors.white,
