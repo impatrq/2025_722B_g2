@@ -740,11 +740,13 @@ function initLightbox() {
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox';
     lightbox.innerHTML = `
+        <div class="lightbox-overlay"></div>
         <div class="lightbox-content">
             <img src="" alt="">
             <button class="lightbox-close">&times;</button>
             <button class="lightbox-prev">&lt;</button>
             <button class="lightbox-next">&gt;</button>
+            <div class="lightbox-counter">1 / 1</div>
         </div>
     `;
     document.body.appendChild(lightbox);
@@ -762,7 +764,9 @@ function initLightbox() {
 
     function updateLightbox() {
         const lightboxImg = lightbox.querySelector('img');
+        const counter = lightbox.querySelector('.lightbox-counter');
         lightboxImg.src = images[currentIndex];
+        counter.textContent = `${currentIndex + 1} / ${images.length}`;
     }
 
     lightbox.querySelector('.lightbox-close').addEventListener('click', () => {
@@ -781,7 +785,7 @@ function initLightbox() {
 
     // Close lightbox when clicking outside the image
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-overlay')) {
             lightbox.classList.remove('active');
         }
     });
