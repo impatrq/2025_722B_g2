@@ -1203,7 +1203,8 @@ body::before {
 
 /* A1 Hero Section */
 .a1-hero {
-  padding: 0px 0;
+  padding-top: 0;
+  padding-bottom: 80px;
   position: relative;
   overflow: hidden;
 }
@@ -1711,7 +1712,7 @@ body::before {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 px;
+  padding: 0 20px;
   position: relative;
   z-index: 1;
 }
@@ -2280,6 +2281,7 @@ img {
 .exo-specs {
   flex: 1;
   position: relative;
+  min-height: 550px; /* Adjusted height to prevent overlap */
 }
 
 .spec-panel {
@@ -2291,12 +2293,29 @@ img {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(140, 203, 213, 0.2);
   animation: fadeIn 0.5s ease forwards;
   height: 100%;
+  transition: transform 0.4s ease;
 }
 
 .spec-panel.active {
   display: flex;
   align-items: flex-start;
   gap: 20px;
+}
+
+.spec-panel#spec-ia.active {
+  transform: translateY(30%);
+}
+
+.spec-panel#spec-bateria.active {
+  transform: translateY(80%);
+}
+
+.spec-panel#spec-sensor.active {
+  transform: translateY(145%);
+}
+
+.spec-panel#spec-motor.active {
+  transform: translateY(165%);
 }
 
 .spec-icon {
@@ -3116,6 +3135,26 @@ img {
 
   .feature-text {
     text-align: left;
+  }
+
+  .exo-model {
+    flex-direction: column;
+  }
+  
+  .exo-image-container {
+    margin-bottom: 30px;
+  }
+  
+  .spec-data {
+    grid-template-columns: 1fr;
+  }
+
+  .exo-specs {
+    min-height: auto; /* Reset height for mobile */
+  }
+
+  .spec-panel.active {
+    transform: translateY(0) !important; /* Reset position for mobile */
   }
 }
 
