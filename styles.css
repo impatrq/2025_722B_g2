@@ -1816,6 +1816,7 @@ img {
 }
 
 .logo {
+  padding-top: 11.085px;
   display: flex;
   justify-content: center;
   align-items: center;
