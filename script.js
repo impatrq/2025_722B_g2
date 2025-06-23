@@ -834,20 +834,24 @@ document.addEventListener('DOMContentLoaded', function() {
   var hotspotBateria = document.querySelector('.hotspot[data-feature="bateria"]');
   var hotspotSensor = document.querySelector('.hotspot[data-feature="sensor"]');
   var hotspotMotor = document.querySelector('.hotspot[data-feature="motor"]');
+  var hotspotRegulador = document.querySelector('.hotspot[data-feature="regulador"]');
+
 
   // Define positions for each state
   var positionsFront = {
       ia:  { top: "25%", left: "75%" },
       bateria: { top: "45%", left: "80%" },
-      sensor: { top: "65%", left: "70%" },
-      motor: { top: "85%", left: "60%" },
+      sensor: { top: "66%", left: "60%"  },
+      motor: { top: "42%", left: "77%" },
+      regulador: { top: "74%", left: "43%" },
       volver: { top: "85%", left: "85%" }
   };
   var positionsBack = {
-      ia:  { top: "20%", left: "60%" },
-      bateria: { top: "40%", left: "65%" },
-      sensor: { top: "60%", left: "55%" },
-      motor: { top: "80%", left: "50%" },
+      ia:  { top: "20%", left: "22%" },
+      bateria: { top: "35%", left: "38%" },
+      sensor: { top: "60%", left: "20%" },
+      motor: { top: "33%", left: "88%" },
+      regulador: { top: "74", left: "52%" },
       volver: { top: "85%", left: "85%" }
   };
 
@@ -868,6 +872,10 @@ document.addEventListener('DOMContentLoaded', function() {
           hotspotMotor.style.top = positions.motor.top;
           hotspotMotor.style.left = positions.motor.left;
       }
+      if (hotspotRegulador) {
+        hotspotRegulador.style.top = positions.regulador.top;
+        hotspotRegulador.style.left = positions.regulador.left;
+      }
       if (volverHotspot) {
           volverHotspot.style.top = positions.volver.top;
           volverHotspot.style.left = positions.volver.left;
@@ -879,14 +887,28 @@ document.addEventListener('DOMContentLoaded', function() {
       return exoImg.src.includes("exoesqueleto-1.png");
   }
 
+  // Simple function to show/hide hotspots based on side
+  function updateHotspotVisibility(side) {
+      document.querySelectorAll('.hotspot').forEach(hotspot => {
+          const hotspotSide = hotspot.getAttribute('data-side') || 'front';
+          if (hotspotSide === side || hotspotSide === 'both') {
+              hotspot.style.display = '';
+          } else {
+              hotspot.style.display = 'none';
+          }
+      });
+  }
+
   if (volverHotspot && exoImg && label) {
       volverHotspot.addEventListener('click', function() {
           if (isFront()) {
               exoImg.src = backImg;
               setHotspotPositions(positionsBack);
+              updateHotspotVisibility('back');
           } else {
               exoImg.src = frontImg;
               setHotspotPositions(positionsFront);
+              updateHotspotVisibility('front');
           }
           label.innerHTML = '<i class="fas fa-arrow-left"></i> Dar la vuelta';
 
@@ -900,5 +922,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Set initial positions for front
       setHotspotPositions(positionsFront);
+      updateHotspotVisibility('front');
   }
 });
+
