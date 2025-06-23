@@ -814,8 +814,91 @@ function initLightbox() {
 document.addEventListener('DOMContentLoaded', initLightbox);
 
 document.head.appendChild(style);
-  
+//   
+// 
+// 
+// 
+// 
+// VOLVER (toggle image and label)
+document.addEventListener('DOMContentLoaded', function() {
+  var volverHotspot = document.getElementById('hotspot-volver');
+  var exoImg = document.querySelector('.exo-main-image');
+  var label = volverHotspot ? volverHotspot.querySelector('.hotspot-label') : null;
 
+  // Paths (adjust if needed)
+  var frontImg = "public/images/exoesqueleto-1.png";
+  var backImg = "med/BACK.png";
 
+  // Hotspot elements
+  var hotspotIA = document.querySelector('.hotspot[data-feature="ia"]');
+  var hotspotBateria = document.querySelector('.hotspot[data-feature="bateria"]');
+  var hotspotSensor = document.querySelector('.hotspot[data-feature="sensor"]');
+  var hotspotMotor = document.querySelector('.hotspot[data-feature="motor"]');
 
+  // Define positions for each state
+  var positionsFront = {
+      ia:  { top: "25%", left: "75%" },
+      bateria: { top: "45%", left: "80%" },
+      sensor: { top: "65%", left: "70%" },
+      motor: { top: "85%", left: "60%" },
+      volver: { top: "85%", left: "85%" }
+  };
+  var positionsBack = {
+      ia:  { top: "20%", left: "60%" },
+      bateria: { top: "40%", left: "65%" },
+      sensor: { top: "60%", left: "55%" },
+      motor: { top: "80%", left: "50%" },
+      volver: { top: "85%", left: "85%" }
+  };
 
+  function setHotspotPositions(positions) {
+      if (hotspotIA) {
+          hotspotIA.style.top = positions.ia.top;
+          hotspotIA.style.left = positions.ia.left;
+      }
+      if (hotspotBateria) {
+          hotspotBateria.style.top = positions.bateria.top;
+          hotspotBateria.style.left = positions.bateria.left;
+      }
+      if (hotspotSensor) {
+          hotspotSensor.style.top = positions.sensor.top;
+          hotspotSensor.style.left = positions.sensor.left;
+      }
+      if (hotspotMotor) {
+          hotspotMotor.style.top = positions.motor.top;
+          hotspotMotor.style.left = positions.motor.left;
+      }
+      if (volverHotspot) {
+          volverHotspot.style.top = positions.volver.top;
+          volverHotspot.style.left = positions.volver.left;
+      }
+  }
+
+  // Helper to check which image is currently shown
+  function isFront() {
+      return exoImg.src.includes("exoesqueleto-1.png");
+  }
+
+  if (volverHotspot && exoImg && label) {
+      volverHotspot.addEventListener('click', function() {
+          if (isFront()) {
+              exoImg.src = backImg;
+              setHotspotPositions(positionsBack);
+          } else {
+              exoImg.src = frontImg;
+              setHotspotPositions(positionsFront);
+          }
+          label.innerHTML = '<i class="fas fa-arrow-left"></i> Dar la vuelta';
+
+          // Open IA Adaptativa spec panel
+          document.querySelectorAll('.spec-panel').forEach(function(panel) {
+              panel.classList.remove('active');
+          });
+          var iaPanel = document.getElementById('spec-ia');
+          if (iaPanel) iaPanel.classList.add('active');
+      });
+
+      // Set initial positions for front
+      setHotspotPositions(positionsFront);
+  }
+});
