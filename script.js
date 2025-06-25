@@ -899,30 +899,70 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
+  // Define transform positions for each panel on front and back
+  const specPanelTransformsFront = {
+    'spec-motor': 'translateY(25%)',
+    'spec-ia': 'translateY(30%)',
+    'spec-bateria': 'translateY(80%)',
+    'spec-sensor': 'translateY(145%)',
+    'spec-regulador': 'translateY(165%)'
+  
+  };
+  const specPanelTransformsBack = {
+    'spec-ia': 'translateY(25%)',
+    'spec-motor': 'translateY(60%)',
+    'spec-bateria': 'translateY(63%)',
+    'spec-sensor': 'translateY(132%)',
+    'spec-regulador': 'translateY(165%)'
+  };
+
+  function setSpecPanelTransforms(transforms) {
+    Object.keys(transforms).forEach(id => {
+      const panel = document.getElementById(id);
+      if (panel) {
+        panel.style.transform = transforms[id];
+      }
+    });
+  }
+
   if (volverHotspot && exoImg && label) {
       volverHotspot.addEventListener('click', function() {
           if (isFront()) {
               exoImg.src = backImg;
               setHotspotPositions(positionsBack);
               updateHotspotVisibility('back');
+              setSpecPanelTransforms(specPanelTransformsBack);
+              // Show IA Adaptativa panel first on back
+              document.querySelectorAll('.spec-panel').forEach(function(panel) {
+                  panel.classList.remove('active');
+              });
+              var iaPanel = document.getElementById('spec-ia');
+              if (iaPanel) iaPanel.classList.add('active');
           } else {
               exoImg.src = frontImg;
               setHotspotPositions(positionsFront);
               updateHotspotVisibility('front');
+              setSpecPanelTransforms(specPanelTransformsFront);
+              // Show Modulo de Asistencia Motriz panel first on front
+              document.querySelectorAll('.spec-panel').forEach(function(panel) {
+                  panel.classList.remove('active');
+              });
+              var motorPanel = document.getElementById('spec-motor');
+              if (motorPanel) motorPanel.classList.add('active');
           }
           label.innerHTML = '<i class="fas fa-arrow-left"></i> Dar la vuelta';
-
-          // Open IA Adaptativa spec panel
-          document.querySelectorAll('.spec-panel').forEach(function(panel) {
-              panel.classList.remove('active');
-          });
-          var iaPanel = document.getElementById('spec-ia');
-          if (iaPanel) iaPanel.classList.add('active');
       });
 
       // Set initial positions for front
       setHotspotPositions(positionsFront);
       updateHotspotVisibility('front');
+      setSpecPanelTransforms(specPanelTransformsFront);
+      // Show Modulo de Asistencia Motriz panel first on initial load
+      document.querySelectorAll('.spec-panel').forEach(function(panel) {
+          panel.classList.remove('active');
+      });
+      var motorPanel = document.getElementById('spec-motor');
+      if (motorPanel) motorPanel.classList.add('active');
   }
 });
 

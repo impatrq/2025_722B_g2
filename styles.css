@@ -2303,22 +2303,6 @@ img {
   gap: 20px;
 }
 
-.spec-panel#spec-ia.active {
-  transform: translateY(30%);
-}
-
-.spec-panel#spec-bateria.active {
-  transform: translateY(80%);
-}
-
-.spec-panel#spec-sensor.active {
-  transform: translateY(145%);
-}
-
-.spec-panel#spec-motor.active {
-  transform: translateY(165%);
-}
-
 .spec-icon {
   width: 60px;
   height: 60px;
@@ -2654,7 +2638,7 @@ img {
 .app-screenshot {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
 .app-particles {
