@@ -932,6 +932,30 @@ body::before {
   border: 1px solid rgba(140, 203, 213, 0.3);
   transition: all 0.3s ease;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 520px; /* Adjust as needed for your design */
+}
+
+.sponsor-card .image-section {
+  flex-shrink: 0;
+}
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.sponsor-description {
+  flex-grow: 1;
+}
+
+.sponsor-features {
+  margin-top: auto;
 }
 
 .sponsor-card:hover {
@@ -1089,7 +1113,7 @@ body::before {
   background-color: rgba(16, 32, 48, 0.8);
   padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(140, 203, 213, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px rgba(140, 203, 213, 0.2);
   border: 1px solid rgba(140, 203, 213, 0.3);
   text-align: center;
   width: 100%;
@@ -1203,7 +1227,8 @@ body::before {
 
 /* A1 Hero Section */
 .a1-hero {
-  padding: 80px 0;
+  padding-top: 0;
+  padding-bottom: 80px;
   position: relative;
   overflow: hidden;
 }
@@ -1815,6 +1840,7 @@ img {
 }
 
 .logo {
+  padding-top: 11.085px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2280,6 +2306,7 @@ img {
 .exo-specs {
   flex: 1;
   position: relative;
+  min-height: 550px; /* Adjusted height to prevent overlap */
 }
 
 .spec-panel {
@@ -2291,6 +2318,7 @@ img {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(140, 203, 213, 0.2);
   animation: fadeIn 0.5s ease forwards;
   height: 100%;
+  transition: transform 0.4s ease;
 }
 
 .spec-panel.active {
@@ -2634,7 +2662,7 @@ img {
 .app-screenshot {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
 .app-particles {
@@ -3116,6 +3144,26 @@ img {
 
   .feature-text {
     text-align: left;
+  }
+
+  .exo-model {
+    flex-direction: column;
+  }
+  
+  .exo-image-container {
+    margin-bottom: 30px;
+  }
+  
+  .spec-data {
+    grid-template-columns: 1fr;
+  }
+
+  .exo-specs {
+    min-height: auto; /* Reset height for mobile */
+  }
+
+  .spec-panel.active {
+    transform: translateY(0) !important; /* Reset position for mobile */
   }
 }
 
@@ -4136,3 +4184,25 @@ img {
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
+
+
+/* Not include */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

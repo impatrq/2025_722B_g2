@@ -116,32 +116,44 @@
     
 
         <!-- Exoskeleton Showcase Section -->
-        <section class="exo-showcase">
+<section class="exo-showcase">
     <div class="container">
         <h2 class="section-title">Tecnología Avanzada</h2>
         <div class="showcase-wrapper">
             <div class="exo-model">
                 <div class="exo-image-container">
                     <img src="public/images/exoesqueleto-1.png" alt="Exoesqueleto Aquiles" class="exo-main-image">
-                    <div class="hotspot" data-feature="ia" style="top: 25%; left: 75%;">
+                    <div class="hotspot" data-feature="ia" data-side="back" style="top: 25%; left: 75%;">
                         <div class="hotspot-dot"></div>
                         <div class="hotspot-ring"></div>
                         <div class="hotspot-label">IA Adaptativa</div>
                     </div>
-                    <div class="hotspot" data-feature="bateria" style="top: 45%; left: 80%;">
+                    <div class="hotspot" data-feature="bateria" data-side="back" style="top: 45%; left: 80%;">
                         <div class="hotspot-dot"></div>
                         <div class="hotspot-ring"></div>
                         <div class="hotspot-label">Batería</div>
                     </div>
-                    <div class="hotspot" data-feature="sensor" style="top: 65%; left: 70%;">
+                    <div class="hotspot" data-feature="sensor" data-side="both" style="top: 65%; left: 10%;">
                         <div class="hotspot-dot"></div>
                         <div class="hotspot-ring"></div>
                         <div class="hotspot-label">Sensores</div>
                     </div>
-                    <div class="hotspot" data-feature="motor" style="top: 85%; left: 60%;">
+                    <div class="hotspot" data-feature="motor" data-side="both" style="top: 85%; left: 60%;">
                         <div class="hotspot-dot"></div>
                         <div class="hotspot-ring"></div>
-                        <div class="hotspot-label">Motor</div>
+                        <div class="hotspot-label">Modulo de Asistencia Motriz</div>
+                    </div>
+                    <div class="hotspot" data-feature="regulador" data-side="both" style="top: 74%; left: 43%;">
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-ring"></div>
+                        <div class="hotspot-label">Regulador</div>
+                    </div>
+                    <div class="hotspot" id="hotspot-volver" data-side="both" style="top: 85%; left: 85%; cursor: pointer;">
+                        <div class="hotspot-dot"></div>
+                        <div class="hotspot-ring"></div>
+                        <div class="hotspot-label" style="display: flex; align-items: center; gap: 6px;">
+                            <i class="fas fa-arrow-left"></i> Dar la vuelta
+                        </div>
                     </div>
                 </div>
                 <div class="exo-specs">
@@ -178,6 +190,19 @@
                                 <li><i class="fas fa-check-circle"></i> Detección de movimiento 3D</li>
                                 <li><i class="fas fa-check-circle"></i> Respuesta en milisegundos</li>
                                 <li><i class="fas fa-check-circle"></i> Calibración automática</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="spec-panel" id="spec-regulador">
+                        <div class="spec-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="spec-content">
+                            <h3>Ajuste Ergonómico</h3>
+                            <p>Nuestro sistema de regulación adaptable se ajusta con precisión a la anatomía de cada usuario, garantizando comodidad, estabilidad y una integración natural con el cuerpo.
+                            </p>
+                            <ul class="spec-features">
+                                <li><i class="fas fa-check-circle"></i>Ajuste dinámico para distintas morfologías</li>
+                                <li><i class="fas fa-check-circle"></i>Diseño ergonómico y liviano</li>
+                                <li><i class="fas fa-check-circle"></i>Fijación segura y no invasiva</li>
                             </ul>
                         </div>
                     </div>
@@ -320,7 +345,7 @@
                             <div class="phone-frame">
                                 <div class="phone-screen">
                                     <div class="app-screen" id="appScreen">
-                                        <img src="med/7.png" class="app-screenshot">
+                                        <img src="med/PAG.png" class="app-screenshot">
                                     </div>
                                 </div>
                                 <div class="phone-button"></div>
@@ -333,7 +358,7 @@
         </section>
 
         <!-- Services Section -->
-        <section class="services">
+        <!-- <section class="services">
             <div class="container">
                 <h2 class="section-title">Nuestros Servicios y Soluciones</h2>
                 <div class="services-grid">
@@ -369,7 +394,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
 
     <!-- Footer -->
@@ -411,7 +436,7 @@
                     <h3>Síguenos</h3>
                     <div class="social-icons">
                         <a href="https://www.instagram.com/aquiles.project/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/company/aquiles-project/about/"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://youtube.com/@aquilesproject?si=hjGjSXgWbFqAbJPA" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
@@ -424,5 +449,6 @@
     </footer>
 
     <script src="script.js"></script>
+    
 </body>
 </html>
