@@ -56,8 +56,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
             duration: const Duration(milliseconds: 500),
             child: Image.asset(
               'assets/images/logo.png',
+<<<<<<< HEAD
               width: 150,
               height: 150,
+=======
+              width: 160,
+              height: 160,
+>>>>>>> main
             ),
           ),
         ),
@@ -78,9 +83,29 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
           children: [
             Image.asset(
               'assets/images/logo.png',
+<<<<<<< HEAD
               width: 70,
             ),
             const SizedBox(width: 8),
+=======
+              width: 28,
+              height: 28,
+            ),
+            const SizedBox(width: 8),
+            ShaderMask(
+              shaderCallback: (bounds) => const LinearGradient(
+                colors: [Color(0xFF8CCBD5), Color(0xFF5E9F9F)],
+              ).createShader(bounds),
+              child: const Text(
+                'AQUILES',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+>>>>>>> main
           ],
         ),
         actions: [

@@ -1,1 +1,0 @@
- /Users/juanignaciomontilla/Documents/GitHub/Aquiles/app-movil/aquiles/.dart_tool/flutter_build/61dff6f660f7c92bda4f89042669968d/native_assets.yaml: 

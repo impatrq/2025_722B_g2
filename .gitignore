@@ -1,2 +1,86 @@
+# Byte-compiled / optimized / DLL files
+**pycache**/
+*.py[cod]
+*$py.class
+# C extensions
+*.so
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+pip-log.txt
+pip-delete-this-directory.txt
+# PyInstaller
+#  Usually these files are written by a python script from a template
+*.manifest
+*.spec
+# Installer logs
+pip-log.txt
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+test-results/
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+# Pyre type checker
+.pyre/
+# Environments
+.env
+.env.*
+# Jupyter Notebook
+.ipynb_checkpoints
+# pyenv
+.python-version
+# VS Code
+.vscode/
+# JetBrains IDEs
+.idea/
+# macOS
 .DS_Store
 **/.DS_Store
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+#Backups
+*-backups*
+
+# Flutter
+**/build/
+**/.dart_tool/
+**/ios/Flutter/ephemeral/
+**/macos/Flutter/ephemeral/
+**/*.dylib
+**/GeneratedPluginRegistrant.java
+**/GeneratedPluginRegistrant.m
+**/flutter_export_environment.sh

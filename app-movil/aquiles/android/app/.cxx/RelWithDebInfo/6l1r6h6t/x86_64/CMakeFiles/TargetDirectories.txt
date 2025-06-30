@@ -1,2 +1,0 @@
-C:/Users/Juan/Documents/GitHub/Aquiles/app-movil/aquiles/android/app/.cxx/RelWithDebInfo/6l1r6h6t/x86_64/CMakeFiles/edit_cache.dir
-C:/Users/Juan/Documents/GitHub/Aquiles/app-movil/aquiles/android/app/.cxx/RelWithDebInfo/6l1r6h6t/x86_64/CMakeFiles/rebuild_cache.dir
