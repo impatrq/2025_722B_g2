@@ -1,9 +1,11 @@
 import 'package:aquiles/providers/auth_provider.dart';
+import 'package:aquiles/providers/ble_connection_provider.dart';
 import 'package:aquiles/screens/login_screen.dart';
 import 'package:aquiles/widgets/performance_tab.dart';
 import 'package:aquiles/widgets/settings_tab.dart';
 import 'package:aquiles/widgets/status_tab.dart';
 import 'package:aquiles/widgets/tutorials_tab.dart';
+import 'package:aquiles/widgets/unconnected_status_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -43,6 +45,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    final bleState = ref.watch(bleConnectionProvider);
+
     if (_showSplash) {
       return Scaffold(
         backgroundColor: const Color(0xFF0A1128),
@@ -52,8 +56,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
             duration: const Duration(milliseconds: 500),
             child: Image.asset(
               'assets/images/logo.png',
+<<<<<<< HEAD
+              width: 150,
+              height: 150,
+=======
               width: 160,
               height: 160,
+>>>>>>> main
             ),
           ),
         ),
@@ -74,6 +83,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
           children: [
             Image.asset(
               'assets/images/logo.png',
+<<<<<<< HEAD
+              width: 70,
+            ),
+            const SizedBox(width: 8),
+=======
               width: 28,
               height: 28,
             ),
@@ -91,6 +105,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                 ),
               ),
             ),
+>>>>>>> main
           ],
         ),
         actions: [
@@ -124,8 +139,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const [
-          StatusTab(),
+        children: [
+          switch (bleState) {
+            BleConnectionState.connected => const StatusTab(),
+            BleConnectionState.connecting =>
+              const Center(child: CircularProgressIndicator()),
+            BleConnectionState.error =>
+              const UnconnectedStatusTab(), // Podés reemplazar por algo más informativo si querés
+            _ => const UnconnectedStatusTab(),
+          },
           PerformanceTab(),
           SettingsTab(),
           TutorialsTab()

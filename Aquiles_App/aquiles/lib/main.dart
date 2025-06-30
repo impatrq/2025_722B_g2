@@ -1,5 +1,6 @@
 import 'package:aquiles/screens/auth_checker.dart';
 import 'package:aquiles/screens/profile_screen.dart';
+import 'package:aquiles/services/ble_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,7 +28,7 @@ void main() async {
 }
 
 class AquilesApp extends StatelessWidget {
-  const AquilesApp({Key? key}) : super(key: key);
+  AquilesApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
