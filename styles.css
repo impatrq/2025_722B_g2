@@ -3222,6 +3222,10 @@ img {
   .app-subtitle {
     font-size: 1.5rem;
   }
+
+  .hero-image {
+    display: none !important;
+  }
 }
 
 @media (max-width: 576px) {
