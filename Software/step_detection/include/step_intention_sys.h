@@ -18,7 +18,7 @@ public:
     void begin() {
         Wire.begin();
         encoder.begin();
-        encoder.setDirection(AS5600_CLOCK_WISE);  // Optional
+        encoder.setDirection(AS5600_CLOCK_WISE);
         lastAngle = getAngleDeg();
         lastTime = millis();
         angularVelocity = 0;
@@ -47,8 +47,8 @@ public:
 
 private:
     float getAngleDeg() {
-        uint16_t raw = encoder.readAngle();           // ✅ Rob Tillaart's version
-        return raw * (360.0 / 4096.0);                 // convert to degrees
+        uint16_t raw = encoder.readAngle();           
+        return raw * (360.0 / 4096.0);                // convert to degrees
     }
 };
 
@@ -106,4 +106,4 @@ public:
     }
 };
 
-#endif // STEP_INTENT_SYSTEM_H
+#endif 
