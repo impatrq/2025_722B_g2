@@ -851,9 +851,35 @@ document.addEventListener('DOMContentLoaded', function() {
       bateria: { top: "35%", left: "38%" },
       sensor: { top: "60%", left: "20%" },
       motor: { top: "33%", left: "88%" },
-      regulador: { top: "74", left: "52%" },
+      regulador: { top: "74%", left: "52%" },
       volver: { top: "85%", left: "85%" }
   };
+
+  // --- MOBILE HOTSPOT POSITIONS ---
+  var positionsFrontMobile = {
+      ia:  { top: "25%", left: "75%" },
+      bateria: { top: "45%", left: "80%" },
+      sensor: { top: "60%", left: "55%" },
+      motor: { top: "40%", left: "70%" },
+      regulador: { top: "74%", left: "43%" },
+      volver: { top: "85%", left: "85%" }
+  };
+  var positionsBackMobile = {
+      ia:  { top: "20%", left: "22%" },
+      bateria: { top: "35%", left: "38%" },
+      sensor: { top: "60%", left: "25%" },
+      motor: { top: "30%", left: "79%" },
+      regulador: { top: "74%", left: "52%" },
+      volver: { top: "85%", left: "85%" }
+  };
+
+  // Helper to always use mobile positions on mobile
+  function getPositionsFront() {
+    return window.innerWidth <= 700 ? positionsFrontMobile : positionsFront;
+  }
+  function getPositionsBack() {
+    return window.innerWidth <= 700 ? positionsBackMobile : positionsBack;
+  }
 
   function setHotspotPositions(positions) {
       if (hotspotIA) {
@@ -906,7 +932,6 @@ document.addEventListener('DOMContentLoaded', function() {
     'spec-bateria': 'translateY(80%)',
     'spec-sensor': 'translateY(145%)',
     'spec-regulador': 'translateY(165%)'
-  
   };
   const specPanelTransformsBack = {
     'spec-ia': 'translateY(25%)',
@@ -925,13 +950,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Track which side is currently shown
+  let currentSide = 'front';
+
+  // Helper to update positions on resize
+  function updateHotspotPositionsOnResize() {
+    if (currentSide === 'front') {
+      setHotspotPositions(getPositionsFront());
+    } else {
+      setHotspotPositions(getPositionsBack());
+    }
+  }
+
+  // Listen for resize events
+  window.addEventListener('resize', updateHotspotPositionsOnResize);
+
   if (volverHotspot && exoImg && label) {
       volverHotspot.addEventListener('click', function() {
           if (isFront()) {
               exoImg.src = backImg;
-              setHotspotPositions(positionsBack);
+              setHotspotPositions(getPositionsBack());
               updateHotspotVisibility('back');
               setSpecPanelTransforms(specPanelTransformsBack);
+              currentSide = 'back';
               // Show IA Adaptativa panel first on back
               document.querySelectorAll('.spec-panel').forEach(function(panel) {
                   panel.classList.remove('active');
@@ -940,9 +981,10 @@ document.addEventListener('DOMContentLoaded', function() {
               if (iaPanel) iaPanel.classList.add('active');
           } else {
               exoImg.src = frontImg;
-              setHotspotPositions(positionsFront);
+              setHotspotPositions(getPositionsFront());
               updateHotspotVisibility('front');
               setSpecPanelTransforms(specPanelTransformsFront);
+              currentSide = 'front';
               // Show Modulo de Asistencia Motriz panel first on front
               document.querySelectorAll('.spec-panel').forEach(function(panel) {
                   panel.classList.remove('active');
@@ -954,9 +996,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       // Set initial positions for front
-      setHotspotPositions(positionsFront);
+      setHotspotPositions(getPositionsFront());
       updateHotspotVisibility('front');
       setSpecPanelTransforms(specPanelTransformsFront);
+      currentSide = 'front';
       // Show Modulo de Asistencia Motriz panel first on initial load
       document.querySelectorAll('.spec-panel').forEach(function(panel) {
           panel.classList.remove('active');
@@ -964,5 +1007,50 @@ document.addEventListener('DOMContentLoaded', function() {
       var motorPanel = document.getElementById('spec-motor');
       if (motorPanel) motorPanel.classList.add('active');
   }
+
+  // Detect mobile view and override positions
+  function isMobile() {
+    return window.innerWidth <= 700;
+  }
+  if (isMobile()) {
+    positionsFront = positionsFrontMobile;
+    positionsBack = positionsBackMobile;
+  }
+
+  let lastIsMobile = window.innerWidth <= 700;
+
+  function handleResponsiveChange() {
+    const nowIsMobile = window.innerWidth <= 700;
+    if (nowIsMobile !== lastIsMobile) {
+      // Update positions and visibility for the current side
+      if (currentSide === 'front') {
+        setHotspotPositions(getPositionsFront());
+        updateHotspotVisibility('front');
+        setSpecPanelTransforms(specPanelTransformsFront);
+        // Optionally, reset active panel
+        document.querySelectorAll('.spec-panel').forEach(panel => panel.classList.remove('active'));
+        var motorPanel = document.getElementById('spec-motor');
+        if (motorPanel) motorPanel.classList.add('active');
+      } else {
+        setHotspotPositions(getPositionsBack());
+        updateHotspotVisibility('back');
+        setSpecPanelTransforms(specPanelTransformsBack);
+        // Optionally, reset active panel
+        document.querySelectorAll('.spec-panel').forEach(panel => panel.classList.remove('active'));
+        var iaPanel = document.getElementById('spec-ia');
+        if (iaPanel) iaPanel.classList.add('active');
+      }
+      lastIsMobile = nowIsMobile;
+    } else {
+      // Always update positions on any resize
+      if (currentSide === 'front') {
+        setHotspotPositions(getPositionsFront());
+      } else {
+        setHotspotPositions(getPositionsBack());
+      }
+    }
+  }
+
+  window.addEventListener('resize', handleResponsiveChange);
 });
 
